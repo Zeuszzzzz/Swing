@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import javax.swing.JFileChooser;
+
 public class OpenFile {
     private File currentFile;
     private Scanner scan;
@@ -9,8 +11,10 @@ public class OpenFile {
         
     }
     public String getFile(){
+        JFileChooser fc = new JFileChooser();
+        fc.showOpenDialog(fc);
         try{
-            currentFile = new File("C:\\Users\\Ravi\\Desktop\\Java\\example.txt");
+            currentFile = new File(fc.getSelectedFile().getAbsolutePath());
             scan = new Scanner(currentFile);
             String file = "";
             while(scan.hasNextLine()){
@@ -21,8 +25,9 @@ public class OpenFile {
         }
         catch(FileNotFoundException e){
             Window error = new Window();
-            error.createWindow("Text Editor", 1000, 1000);
+            error.createWindow("Error", 500, 150);
         }
         return "";
     }
+    
 }
