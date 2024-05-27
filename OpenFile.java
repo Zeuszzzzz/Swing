@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
 import javax.swing.JFileChooser;
 
 public class OpenFile {
@@ -28,6 +27,9 @@ public class OpenFile {
             error.createWindow("Error", 500, 150);
         }
         return "";
+    }
+    public File getCurrentFile(){
+        return currentFile;
     }
     
 }

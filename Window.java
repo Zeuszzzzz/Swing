@@ -7,16 +7,11 @@ public class Window {
     public Window(){
 
     }
-    public Window(boolean editor){
-        
-        
+    public Window(boolean editor){      
         if (editor){          
             frame.add(editArea);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
-
-        
-        
     }
     public void createWindow(String name, int width, int height){
         frame.setTitle(name);
@@ -26,4 +21,8 @@ public class Window {
     public void setTextArea(String txt){
         editArea.setText(txt);
     }
+    public String getNewText(){
+        return editArea.getText();
+    }
+    
 }
