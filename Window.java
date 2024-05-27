@@ -1,28 +1,29 @@
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+import javax.swing.JPanel;
 
 public class Window {
-    private JFrame frame = new JFrame();
+    private JFrame frame;
     private JTextArea editArea = new JTextArea();
-    public Window(){
-
-    }
-    public Window(boolean editor){      
-        if (editor){          
-            frame.add(editArea);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }
-    }
-    public void createWindow(String name, int width, int height){
-        frame.setTitle(name);
+    private Menubar bar;
+    private JPanel panel = new JPanel();
+    public Window(String name, int width, int height){
+        frame = new JFrame(name);
         frame.setSize(width,height);
+        
+        panel.setLayout(null);
+        editArea.setBounds(0, 21, width, height);
+        panel.add(editArea);
+        bar = new Menubar(panel , editArea, width, getNewText());
+        
+
+        frame.add(panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-    public void setTextArea(String txt){
-        editArea.setText(txt);
-    }
+    
     public String getNewText(){
-        return editArea.getText();
+       return editArea.getText();
     }
     
 }

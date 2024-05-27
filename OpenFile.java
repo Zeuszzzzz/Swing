@@ -19,12 +19,11 @@ public class OpenFile {
             while(scan.hasNextLine()){
                 file += scan.nextLine() + "\n";
             }
-            scan.close(); 
+            scan.close();
             return file;
         }
         catch(FileNotFoundException e){
-            Window error = new Window();
-            error.createWindow("Error", 500, 150);
+            System.out.println("File not found");
         }
         return "";
     }
