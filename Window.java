@@ -7,23 +7,18 @@ public class Window {
     private JTextArea editArea = new JTextArea();
     private Menubar bar;
     private JPanel panel = new JPanel();
-    public Window(String name, int width, int height){
+
+    public Window(String name, int width, int height) {
         frame = new JFrame(name);
-        frame.setSize(width,height);
-        
+        frame.setSize(width, height);
+
         panel.setLayout(null);
         editArea.setBounds(0, 21, width, height);
         panel.add(editArea);
-        bar = new Menubar(panel , editArea, width, getNewText());
-        
+        bar = new Menubar(panel, editArea, width);
 
         frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-    
-    public String getNewText(){
-       return editArea.getText();
-    }
-    
 }

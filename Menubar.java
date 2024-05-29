@@ -6,6 +6,7 @@ import javax.swing.JMenuItem;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class Menubar {
     private JMenuBar bar = new JMenuBar();
     private JMenu file = new JMenu("File");
@@ -15,11 +16,10 @@ public class Menubar {
     private ActionListener saveListener;
     private OpenFile File = new OpenFile();
 
-    public Menubar(JPanel panel , JTextArea textarea ,int width,String newText){
+    public Menubar(JPanel panel, JTextArea textarea, int width) {
         openListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
                 textarea.setText(File.getFile());
             }
         };
@@ -27,10 +27,9 @@ public class Menubar {
         saveListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SaveFile saving = new SaveFile(File, newText);
+                SaveFile saving = new SaveFile(File, textarea.getText());
             }
         };
-
 
         open.addActionListener(openListener);
         save.addActionListener(saveListener);

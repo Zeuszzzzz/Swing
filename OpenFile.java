@@ -6,29 +6,27 @@ import javax.swing.JFileChooser;
 public class OpenFile {
     private File currentFile;
     private Scanner scan;
-    public OpenFile(){
-        
-    }
-    public String getFile(){
+
+    public String getFile() {
         JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(fc);
-        try{
+        try {
             currentFile = new File(fc.getSelectedFile().getAbsolutePath());
             scan = new Scanner(currentFile);
             String file = "";
-            while(scan.hasNextLine()){
+            while (scan.hasNextLine()) {
                 file += scan.nextLine() + "\n";
             }
             scan.close();
             return file;
-        }
-        catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
         return "";
     }
-    public File getCurrentFile(){
+
+    public File getCurrentFile() {
         return currentFile;
     }
-    
+
 }
