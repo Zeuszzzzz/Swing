@@ -27,6 +27,7 @@ public class Menubar {
         saveListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                @SuppressWarnings("unused")
                 SaveFile saving = new SaveFile(File, textarea.getText());
             }
         };

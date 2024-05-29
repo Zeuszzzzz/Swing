@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 public class Window {
     private JFrame frame;
     private JTextArea editArea = new JTextArea();
+    @SuppressWarnings("unused")
     private Menubar bar;
     private JPanel panel = new JPanel();
 
